@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-arrow = () =>{
+let arrow = () =>{
     const [counter , setCounter] = useState(15);
     
     const addValue = () =>{
@@ -11,4 +11,3 @@ arrow = () =>{
     }
     console.log(addValue)
 }
-console.log(addValue)
