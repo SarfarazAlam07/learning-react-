@@ -7,7 +7,7 @@ step 2 : git init
 step 3 : git add README.md
 step 4 : git commit -m "your Msg"
 step 5 : git branch -M main 
-step 6 : git remote ad origin {your repository link}
+step 6 : git remote add origin {your repository link}
 step 7 : git push -u origin main
 
 
