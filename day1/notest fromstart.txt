@@ -1,0 +1,113 @@
+-------------------------------------------------- H O O K S -----------------------------------------------------------------
+React mein  Hooks  ek powerful feature hai jo functional components mein state aur lifecycle methods ko manage karne mein help karte hain. Pehle, React mein state aur lifecycle methods sirf class components mein hi available thi, lekin hooks ke introduction ke baad, aap inhe functional components mein bhi use kar sakte ho. 
+
+  Hooks Kya Hote Hain? 
+Hooks React ke functions hote hain jo aapko functional components mein state aur side effects ko handle karne ki suvidha dete hain. Yeh aapko apne component ko zyada reusable aur manageable banane mein madad karte hain.
+
+  Kaise Use Hote Hain? 
+Hooks ko aap direct functional components mein use karte ho. React ke hooks functions ki form mein hote hain, jo specific tasks ko handle karte hain.
+
+#  Example of Using Hooks in Functional Component: 
+
+`javascript
+import React, { useState, useEffect } from 'react';
+
+function Counter() {
+  // useState hook se counter ko track kar rahe hain
+  const [count, setCount] = useState(0); // initial value is 0
+
+  // useEffect hook se side effects handle kar rahe hain
+  useEffect(() => {
+    document.title = `Count: ${count}`;
+  }, [count]); // Jab count change hoga, title update hoga
+
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+    </div>
+  );
+}
+
+export default Counter;
+`
+
+  Types of Hooks in React 
+React mein kuch common hooks hote hain. Yaha pe hum unhe easy hinglish mein samjhenge:
+
+1.  useState   
+   -  Kaam : Yeh hook component mein state ko manage karta hai.
+   -  Kaise Use Karein : Aap `useState(initialValue)` likhte ho, jo state ko initialize karta hai.
+
+    Example : 
+   `javascript
+   const [count, setCount] = useState(0);
+   `
+   - Yaha pe `count` state ka value hai, aur `setCount` function hai jo `count` ko update karega.
+
+2.  useEffect   
+   -  Kaam : Yeh hook side effects handle karta hai, jaise data fetch karna, event listeners set karna, timers, etc.
+   -  Kaise Use Karein : `useEffect` ko component ke render hone ke baad chalana hota hai. Aap `useEffect()` mein code likhte ho jo kuch side effects perform kare.
+
+    Example : 
+   `javascript
+   useEffect(() => {
+     console.log("Component mounted or updated");
+   }, [count]); // Jab count change hoga, yeh effect chalega
+   `
+
+3.  useContext   
+   -  Kaam : Yeh hook React ke context ko handle karta hai. Agar aapko data ko multiple components ke beech share karna ho, toh aap `useContext` use karte hain.
+   -  Kaise Use Karein : `useContext(MyContext)` likhte ho, jahan `MyContext` wo context object hai jo aapne `React.createContext()` se banaya hai.
+
+    Example : 
+   `javascript
+   const value = useContext(MyContext);
+   `
+
+4.  useRef   
+   -  Kaam : Yeh hook DOM elements ko reference dene ke liye use hota hai. Isse aap direct DOM elements ko access kar sakte ho bina re-render ke.
+   -  Kaise Use Karein : `use
+   Ref()` ko call karke aap ek reference object bana sakte ho.
+
+    Example : 
+   `javascript
+   const inputRef = useRef();
+   inputRef.current.focus(); // Input element ko focus karenge
+   `
+
+5.  useReducer   
+   -  Kaam : Yeh hook complex state logic ko handle karta hai. Jab state ko update karna thoda complicated ho, toh aap `useReducer` ka use karte hain. Yeh `useState` ka alternative hai.
+   -  Kaise Use Karein : Aap ek reducer function likhte ho jo state ko update kare.
+
+    Example : 
+   `javascript
+   const [state, dispatch] = useReducer(reducer, initialState);
+   `
+
+6.  useMemo   
+   -  Kaam : Yeh hook performance optimization ke liye hota hai. Agar aapko kisi calculation ko re-render ke time pe dobara compute nahi karna hai, toh `useMemo` use karte hain.
+   -  Kaise Use Karein : `useMemo()` aapko calculation ka result ya object/array ko memoize karne mein help karta hai.
+
+    Example : 
+   `javascript
+   const memoizedValue = useMemo(() => expensiveFunction(count), [count]);
+   `
+
+7.  useCallback   
+   -  Kaam : Yeh hook bhi performance optimization ke liye hota hai, lekin yeh function references ko memoize karta hai. Jab aap kisi function ko props ke roop mein pass karte ho, toh yeh ensure karta hai ki function re-create na ho.
+   -  Kaise Use Karein : `useCallback()` function ko memoize karta hai.
+
+    Example : 
+   `javascript
+   const handleClick = useCallback(() => {
+     setCount(count + 1);
+   }, [count]);
+   `
+
+  Summary in Hinglish: 
+-  Hooks  React ke functions hain jo aapko functional components mein state aur side effects ko handle karne mein madad karte hain.
+- Sabse common hooks hain: `useState`, `useEffect`, `useContext`, `useRef`, `useReducer`, `useMemo`, aur `useCallback`.
+- Har hook ka apna specific use case hota hai, jaise `useState` ko state manage karne ke liye use karte hain, aur `useEffect` ko side effects handle karne ke liye.
+
+React hooks ko samajhna thoda tricky ho sakta hai, lekin jab aap inhe use karte hain, toh yeh aapke code ko zyada clean aur efficient bana dete hain.
