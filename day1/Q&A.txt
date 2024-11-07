@@ -30,7 +30,7 @@ npm create vite
 cd {your porject name}
 npm install
 
-include tailwind 
+___________include tailwind____________
 search tailwind go tailwind webpage 
    > documentation section
    > framework Guides 
