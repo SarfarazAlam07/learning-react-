@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.btn{
+    @apply text-sm font-bold hover:bg-black hover:border-lime-300 hover:text-white border-2 border-solid border-black bg-lime-300 rounded-full px-2 items-center flex justify-center text-center;
+}
